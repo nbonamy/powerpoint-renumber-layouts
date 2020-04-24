@@ -13,20 +13,21 @@ matches=(Covers Sections Hybrids Custom Endings)
 echo "Master templates starting with these words will be renumbered: ${matches[*]}"
 
 # init
-cd $folder
+count=0
 declare -a indices
+cd $folder
 
 # make sure we get layouts in natural order
-for i in ppt/slideLayouts/slideLayout{1..999}.xml;
+for layout in ppt/slideLayouts/slideLayout{1..999}.xml;
 do
 
 	# check if file exists
-	if [ ! -f $i ]; then
+	if [ ! -f $layout ]; then
 		continue
 	fi
 
 	# get filename
-	filename=$(basename $i)
+	filename=$(basename $layout)
 
 	# find master
 	master=$(grep -r -l $filename ppt/slideMasters/_rels)
@@ -46,17 +47,19 @@ do
 		# get index
 		index=${indices[$number]}
 		if [ "$index" == "" ]; then
-			indices[$number]=1
 			index=1
 		fi
 
 		# replace
 		pattern="s/p:cSld name=\"[^\"]*\"/p:cSld name=\"$name $index\"/g"
-		sed -i '' -e "$pattern" $i
+		sed -i '' -e "$pattern" $layout
 
 		# increment
 		indices[$number]=$((index+1))
+		count=$((count+1))
 
 	fi
 
 done
+
+echo "${count} layout(s) updated!"
