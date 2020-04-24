@@ -7,7 +7,7 @@ Those scripts can be used to tidy up a Powerpoint file by renumbering the name o
 - Covers 2
 - etc...
 
-The script will *NOT* update your original file but will create a new file appending "NEW" to the filename in the same folder of the original file.
+The script will *NOT* update your original file but will create a new file appending "NEW" to the filename in the same folder of the original file. Nevertheless you should always make a backup of your files before running these scripts to prevent any loss of data.
 
 ## Executing
 
