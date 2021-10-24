@@ -9,7 +9,7 @@ then
 fi
 
 # masters that we rename
-matches=(Covers Sections Hybrids Custom Endings)
+matches=(Covers Sections Titled Untitled Custom Endings)
 echo "Master templates starting with these words will be renumbered: ${matches[*]}"
 
 # init

@@ -33,7 +33,7 @@ success "Updating layouts"
 success "Rebuilding PPTX"
 rm "${TARGET_FILE}" 2> /dev/null
 cd ${WORK_FOLDER}
-zip -qq -r "${TARGET_FILE}" *
+zip -qq -r "../${TARGET_FILE}" *
 cd - > /dev/null
 
 # cleanup
